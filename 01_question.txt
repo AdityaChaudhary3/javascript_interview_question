@@ -1,0 +1,41 @@
+Question - An array is given, do you have to loop the array to display the original property of the array? (The array has some additional properties.)
+Topic - Array
+
+Solution- 
+          In this question, we have to take care of the prototype in JavaScript.
+
+          Code- 
+                Array.prototype.extraProperty = "Aditya"
+          Now, Every array has an additional property named extraProperty.
+
+                const newArray = [1,2,3,4]
+                for(let v in newArray){
+                     console.log(v)
+                }
+
+        Output- 
+               0 
+               1 
+               2 
+               3 
+               extraProperty
+
+
+      Now, the problem is to ignore the additional properties.
+      For this, we put a check in the if condition.
+            
+              for(let v in newArray){
+                    if(newArray.hasOwnProperty(v){
+                     console.log(v)
+                } 
+              }
+
+      So, hasOwnProperty is only True for the original property that's why it only displays the original property.
+
+      Output- 
+              0 
+              1 
+              2 
+              3 
+
+
